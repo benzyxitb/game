@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXUS STRIKE — Tactical Arena</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+</script>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+<div id="loading"><div class="logo">NEXUS<span>STRIKE</span></div><div class="loadline"><i></i></div><small>INITIALIZING COMBAT SYSTEMS...</small></div>
+<div id="app">
+<header><div class="brand">NEXUS<span>STRIKE</span></div><div class="status"><i></i> SERVER READY <span id="online">0 ONLINE</span></div></header>
+<main id="menu">
+<section class="hero">
+<div class="eyebrow">TACTICAL COMBAT // SEASON 01</div>
+<h1>ENTER THE<br><em>ARENA.</em></h1>
+<p>Squad up. Lock on. Dominate the battlefield.</p>
+<div class="auth">
+<input id="username" maxlength="18" placeholder="PLAYER NAME" value="Rookie">
+<input id="password" type="password" placeholder="PASSWORD (REGISTER / LOGIN)">
+<div class="auth-actions"><button id="guest" class="btn secondary">PLAY AS GUEST</button><button id="login" class="btn">LOGIN</button><button id="register" class="btn outline">REGISTER</button></div>
+<div id="authmsg"></div>
+</div>
+</section>
+<aside class="panel modes">
+<div class="panel-title">SELECT GAME MODE <small>01 / 04</small></div>
+<button class="mode active" data-mode="MULTIPLAYER"><b>01</b><span><strong>MULTIPLAYER</strong><small>Join the public combat zone</small></span><i>↗</i></button>
+<button class="mode" data-mode="1 VS 1"><b>02</b><span><strong>1 VS 1 / BY ONE</strong><small>Private duel room</small></span><i>↗</i></button>
+<button class="mode" data-mode="FREE FOR ALL"><b>03</b><span><strong>FREE FOR ALL</strong><small>Every operator for themselves</small></span><i>↗</i></button>
+<button class="mode" data-mode="TRAINING"><b>04</b><span><strong>TRAINING</strong><small>Practice your aim</small></span><i>↗</i></button>
+<div class="mode-footer"><span>MAP SELECTED</span><b>CYBER ARENA</b></div>
+<button id="play" class="btn play">DEPLOY TO ARENA <span>→</span></button>
+</aside>
+</main>
+<section id="game" class="hidden">
+<div id="world"></div>
+<div class="hud-top"><div class="hudbox"><small>MAP / CYBER ARENA</small><b id="modeLabel">MULTIPLAYER</b></div><div class="hudbox center"><small>ELIMINATIONS</small><b id="kills">00</b></div><div class="hudbox right"><small>OPERATORS</small><b id="playersCount">01</b></div></div>
+<div class="crosshair"><i></i><b></b></div>
+<div class="hud-bottom"><div class="health"><small>VITALS</small><strong id="health">100</strong><div><i id="healthbar"></i></div></div><div class="weapon"><small>PRIMARY WEAPON</small><b>VX-7 // ASSAULT RIFLE</b><span>∞ <small>AMMO</small></span></div><div class="controls">WASD MOVE · MOUSE AIM · CLICK FIRE · ESC EXIT</div></div>
+<div id="notice"></div>
+<div id="scoreboard" class="scoreboard hidden"><h3>COMBAT SCOREBOARD</h3><div id="scoreRows"></div><button id="resume" class="btn">RESUME</button><button id="exit" class="btn secondary">EXIT MATCH</button></div>
+<div id="hitmarker">×</div>
+</section>
+</div>
+<script type="module" src="game.js"></script>
+</body></html>
